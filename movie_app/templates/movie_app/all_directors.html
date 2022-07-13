@@ -3,5 +3,10 @@
 
 
 {% block content %}
-
+    <h2>Список всех режиссеров</h2>
+    <ul>
+        {% for director in directors %}
+            <li><a href="{{director.get_url}}"> Режиссер {{director.first_name}} {{director.last_name}}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
