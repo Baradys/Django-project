@@ -16,6 +16,14 @@ class Director(models.Model):
         return f'{self.first_name} {self.last_name}'
 
 
+class DressingRoom(models.Model):
+    floor = models.IntegerField(default=None)
+    number = models.IntegerField(default=None)
+
+    def __str__(self):
+        return f'{self.floor} {self.number}'
+
+
 class Actor(models.Model):
     MALE = 'M'
     FEMALE = 'F'
@@ -24,6 +32,7 @@ class Actor(models.Model):
         (FEMALE, 'Женщина'),
     ]
 
+    dressing = models.OneToOneField(DressingRoom, on_delete=models.SET_NULL, null=True, blank=True)
     first_name = models.CharField(max_length=100, default='NoName')
     last_name = models.CharField(max_length=100, default='NoName')
     gender = models.CharField(max_length=1, choices=GENDERS, default=MALE)
