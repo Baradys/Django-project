@@ -1,6 +1,9 @@
 from django.contrib import admin, messages
-from .models import Movie
+from .models import Movie, Director, Actor
 from django.db.models import QuerySet
+
+admin.site.register(Director)
+admin.site.register(Actor)
 
 
 class RatingFilter(admin.SimpleListFilter):
@@ -28,9 +31,9 @@ class MovieAdmin(admin.ModelAdmin):
     # fields = ['rating', 'name']
     # exclude = ['slug']
     # readonly_fields = ['slug']
-    prepopulated_fields = {'slug': ('name', )}
-    list_display = ['name', 'rating', 'year', 'budget', 'rating_status', 'currency']
-    list_editable = ['rating', 'year', 'budget', 'currency']
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ['name', 'rating', 'director', 'year', 'budget', 'rating_status', 'currency']
+    list_editable = ['rating', 'year', 'director', 'budget', 'currency']
     ordering = ['-rating', 'name']
     list_per_page = 10
     actions = ['set_dollars', 'set_rubles', 'set_euros']
