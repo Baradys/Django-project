@@ -12,6 +12,7 @@ class Director(models.Model):
     def get_url(self):
         return reverse('director_detail', args=[self.slug])
 
+
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
