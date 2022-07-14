@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'movie_app',
     'django_extensions',
     'debug_toolbar',
-    'feedback'
+    'feedback',
+    'gallery'
 ]
 
 MIDDLEWARE = [
