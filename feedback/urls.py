@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('feedback/', views.index)
+    path('', views.index),
+    path('done/', views.done)
 ]

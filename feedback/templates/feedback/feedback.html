@@ -5,6 +5,11 @@
     <title>Feedback</title>
 </head>
 <body>
-<h2>Оставьте отзыв</h2>
+    <h2>Оставьте отзыв</h2>
+    <form action="/feedback/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Отправить</button>
+    </form>
 </body>
 </html>
