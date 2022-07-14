@@ -129,3 +129,4 @@ INTERNAL_IPS = [
 ]
 
 MEDIA_ROOT = BASE_DIR / 'uploads'
+MEDIA_URL = '/my-media/'
