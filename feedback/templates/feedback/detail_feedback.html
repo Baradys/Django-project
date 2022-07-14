@@ -1,0 +1,9 @@
+{% extends 'feedback/base.html' %}
+{% block title %}
+    Отзыв
+{% endblock %}
+
+{% block content %}
+    <h2>Пользователь {{feedback.name}} {{feedback.surname}} оставил отзыв:</h2>
+    <h3>{{feedback.feedback}}</h3>
+{% endblock %}

@@ -1,9 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Movie, Director, Actor
 from django.db.models import F, Sum, Max, Min, Avg, Value
+from django.views.generic import ListView
 
 
 # Create your views here.
+
+class ActorsView(ListView):
+    template_name = 'movie_app/all_actors.html'
+    model = Actor
+    context_object_name = 'actors'
 
 
 def show_all_movie(request):
@@ -34,13 +40,6 @@ def show_one_director(request, slug_director: str):
     director = get_object_or_404(Director, slug=slug_director)
     return render(request, 'movie_app/one_director.html', {
         'director': director
-    })
-
-
-def show_all_actors(request):
-    actors = Actor.objects.annotate()
-    return render(request, 'movie_app/all_actors.html', {
-        'actors': actors
     })
 
 
