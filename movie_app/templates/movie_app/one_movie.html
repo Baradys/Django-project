@@ -8,5 +8,16 @@
     <h3>Год выхода - {{movie.year|default:"неизвестно"}}</h3>
     <h3>Рейтинг - {{movie.rating}}%</h3>
     <h3>Бюджет - {{movie.budget}}</h3>
-    <h3></h3>
+    <hr>
+    <h2>Информация о режиссере</h2>
+    <h3>Имя - {{movie.director.first_name|default:"неизвестно"}}</h3>
+    <h3>Фамилия - {{movie.director.last_name|default:"неизвестно"}}</h3>
+    <h3>Почта - {{movie.director.director_email|default:"неизвестно"}}</h3>
+    <hr>
+    <ul>
+        {% for actor in movie.actors.all %}
+            <li>{{actor}}</li>
+        {% endfor %}
+
+    </ul>
 {% endblock %}
