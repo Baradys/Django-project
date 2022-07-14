@@ -1,12 +1,10 @@
-from django.shortcuts import render
-from django.views import View
+from .models import Gallery
+from django.views.generic.edit import CreateView
+from .forms import GalleryUploadForm
 
 
-# Create your views here.
-
-class GalleryView(View):
-    def get(self, request):
-        return render(request, 'gallery/load_file.html')
-
-    def post(self, request):
-        pass
+class GalleryView(CreateView):
+    model = Gallery
+    form_class = GalleryUploadForm
+    template_name = 'gallery/load_file.html'
+    success_url = '/gallery/load_image/'
